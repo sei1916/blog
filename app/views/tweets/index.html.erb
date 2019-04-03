@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+    <% if user_signed_in? %>
+      <p>ようこそ<%= current_user.nickname %>さん!</p>
+    <% else %>
+      <p>よかったらログインしてね！</p>
+ <% end %>
+
+
+
+<div class="contents row">
+  <% @tweets.each do |tweet| %>
+    <%= render partial: "tweet", locals: { tweet: tweet } %>
+  <% end %>
+ <%= paginate(@tweets) %>
+  </ul>
+</div>
+
+
+
+
+<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>
